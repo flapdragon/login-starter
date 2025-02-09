@@ -1,19 +1,9 @@
-import { useState } from "react"
 import { Navigate, Outlet } from "react-router"
 
 const PrivateRoute = () => {
-  const [ loading, setLoading ] = useState(false)
-  // const dispatch = useDispatch()
+  const token = localStorage.getItem("token")
 
-  // const token = sessionStorage.getItem("token")
-  const token = null
-
-  // If auth is pending and state is loading
-  if (loading) {
-    return <div>Loading ...</div>
-  }
-
-  // If user is logged in
+  // If user is logged
   if (token) {
     return <Outlet />
   }

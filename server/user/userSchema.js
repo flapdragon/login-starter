@@ -30,7 +30,7 @@ const userSchema = new Schema({
     type: String,
     default: "local"
   },
-  refreshToken: {
+  token: {
     type: [ sessionSchema ]
   }
 })

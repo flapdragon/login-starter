@@ -1,28 +1,30 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router"
+import { login } from "./auth/authService"
 
 const Login = () => {
+  const navigate = useNavigate()
+  
   const [ loginForm, setLoginForm ] = useState({ email: "", password: "" })
   const [ loading, setLoading ] = useState(false)
   
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log("handleSubmit")
-    // Validation
-    // if (loginForm.email === "" || loginForm.password === "") {
-    //   // Show error message/styling
-    //   console.log("form error")
-    // }
-    // else {
-    //   // Service call to login
-    // }
 
-    // Use timeout to handle disable loading styling
-    // TODO: remove once service call is setup
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 2000)
+    // Validation
+    if (loginForm.email === "" || loginForm.password === "") {
+      // Show error message/styling
+      console.log("form error")
+    }
+    else {
+      // Service call to login
+      const checkLogin = await login(loginForm)
+      if (checkLogin.success && checkLogin.token) {
+        localStorage.setItem("token", checkLogin.token)
+        navigate("/dashboard")
+      }
+    }
+
   }
 
   return (
