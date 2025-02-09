@@ -1,5 +1,6 @@
 import passport from "passport"
 import { Strategy } from "passport-local"
+import * as argon2 from "argon2"
 import userModel from "../user/userModel.js"
 
 passport.serializeUser((user, done) => {
@@ -24,11 +25,12 @@ export default passport.use(
     try {
       console.log("local strategy", username, password)
       const user = await userModel.findOne({ email: username })
+      const isPasswordCorrect = await argon2.verify(user.password, password)
       console.log("user", user)
       if (!user) {
         throw new Error("Invalid credentials")
       }
-      if (user.password !== password) {
+      if (!isPasswordCorrect) {
         throw new Error("Invalid credentials")
       }
       done(null, user)

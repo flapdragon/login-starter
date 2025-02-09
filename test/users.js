@@ -9,7 +9,7 @@ const generateFakeUser = () => {
   return {
     firstName,
     lastName,
-    email: faker.internet.email({ firstName, lastName }),
+    email: faker.internet.email({ firstName: firstName.toLowerCase(), lastName: lastName.toLowerCase() }),
     password: "test"
   }
 }
