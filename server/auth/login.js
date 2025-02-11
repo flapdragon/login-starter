@@ -32,7 +32,13 @@ const login = async (req, res, next) => {
   try {
     const user = await userModel.findOne({ _id })
     console.log("login user", user)
-    user.token.push({ token })
+    if (user.token) {
+      user.token.push({ token });
+    }
+    else {
+      user.token = [{ token }]
+    }
+    user.save()
     res.cookie("token", token, cookieOptions)
     res.status(200).json({ success: true, token })
   }
