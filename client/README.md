@@ -1,8 +1,24 @@
-# React + Vite
+# login-starter Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting Started
 
-Currently, two official plugins are available:
+### .env
+Create a .env file at the top level of the client folder.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+It just needs one variable. since we use Vite, that variable must always be prefixed with VITE_. The variable is for the location of the backend server. It must match the protocol, domain and port.
+
+```
+VITE_API_SERVER_URL=http://localhost:8000
+```
+
+### NPM install
+```
+cd client
+npm install
+npm run dev
+```
+
+## Technologies
+- Vite
+- React 19.0.0
+- Tailwind 4.0.4
