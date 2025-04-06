@@ -16,7 +16,4 @@ See the README.md in each folder for further setup instructions.
 Use this as a template for projects that require authentication.
 
 ## Authors and acknowledgment
-ddean@perseverenow.org
-
-## License
-Persevere License © 2025
+@flapdragon
