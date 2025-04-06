@@ -3,7 +3,7 @@
 ## Getting started
 
 ```
-git clone http://104.131.171.220/cohort-06/login-starter.git
+git clone git@github.com:flapdragon/login-starter.git
 cd login-starter
 ```
 
